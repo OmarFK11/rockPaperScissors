@@ -4,4 +4,17 @@ function randomIntGen() {
 	return randomInt;
 }
 
-console.log(randomIntGen());
+// console.log(randomIntGen());
+function getCompChoice() {
+	let randomInt = randomIntGen();
+	switch (randomInt) {
+		case 0:
+			return "rock";
+		case 1:
+			return "paper";
+		case 2:
+			return "scissors";
+		default:
+			return "Error";
+	}
+}
