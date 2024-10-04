@@ -1,3 +1,5 @@
+// import { getCompPick, randomIntGen } from "./comPick.js";
+//
 // import { getHumanPick, verifyPick } from "./humanPick.js";
 //
 
@@ -24,33 +26,32 @@ function getCompPick() {
 // console.log(getCompChoice());
 //////////////////////////////////
 function verifyPick(x) {
-	x = x.toUpperCase();
-	if (x === "ROCK") {
+	if (x === "rock") {
 		return true;
 	}
-	if (x === "PAPER") {
+	if (x === "paper") {
 		return true;
 	}
-	if (x === "SCISSORS") {
+	if (x === "scissors") {
 		return true;
 	}
 	return false;
 }
 
 function getHumanPick() {
-	let choice = globalThis.prompt("Type 'rock', 'paper' or 'scissors'");
+	let choice = window.prompt("Type 'rock', 'paper' or 'scissors'");
 	while (verifyPick(choice) === false) {
-		choice = globalThis.prompt(
+		choice = window.prompt(
 			"Invalid input. Type 'rock', 'paper' or 'scissors'",
 		);
 	}
 	return choice;
 }
 // console.log(getHumanPick());
-// export { getHumanPick, verifyPick };
+export { getHumanPick, verifyPick };
 
 //////////////////////////////////
-// export { getCompPick, randomIntGen };
+export { getCompPick, randomIntGen };
 function playRound() {
 	let comPick = getCompPick().toUpperCase();
 	let humanPick = getHumanPick().toUpperCase();
@@ -92,7 +93,7 @@ function translateResult(result) {
 let humanScore = 0;
 let compScore = 0;
 let numRounds = window.prompt("Type the number of rounds you want to play");
-for (let i = 1; i <= numRounds; i++) {
+for (let i = 0; i <= numRounds; i++) {
 	let result = playRound();
 	let resultText = translateResult(result);
 	if (result === 1) {
@@ -101,25 +102,4 @@ for (let i = 1; i <= numRounds; i++) {
 	if (result === -1) {
 		compScore++;
 	}
-	console.log(resultText);
 }
-let outputMessage = "";
-if (humanScore < compScore) {
-	outputMessage = "COMPUTER won! ";
-	outputMessage = outputMessage + "Scores:\n You=" + humanScore +
-		", COMPUTER:" +
-		compScore;
-} else if (humanScore > compScore) {
-	outputMessage = "You won! ";
-	outputMessage = outputMessage +
-		("Scores:\n You=" + humanScore + ", COMPUTER:" + compScore);
-} else {
-	outputMessage = "It's a draw! ";
-	outputMessage = outputMessage +
-		("Scores:\n You=" + humanScore + ", COMPUTER:" + compScore);
-}
-const para = document.createElement("p");
-const node = document.createTextNode(outputMessage);
-para.appendChild(node);
-const element = document.getElementById("div1");
-element.appendChild(para);
