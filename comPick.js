@@ -5,7 +5,7 @@ function randomIntGen() {
 }
 
 // console.log(randomIntGen());
-function getCompChoice() {
+function getCompPick() {
 	let randomInt = randomIntGen();
 	switch (randomInt) {
 		case 0:
@@ -15,6 +15,8 @@ function getCompChoice() {
 		case 2:
 			return "scissors";
 		default:
-			return "Error";
+			return "error";
 	}
 }
+// console.log(getCompChoice());
+export { getCompPick, randomIntGen };
