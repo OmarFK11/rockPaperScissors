@@ -118,8 +118,10 @@ if (humanScore < compScore) {
 	outputMessage = outputMessage +
 		("Scores:\n You=" + humanScore + ", COMPUTER:" + compScore);
 }
-const para = document.createElement("p");
-const node = document.createTextNode(outputMessage);
-para.appendChild(node);
-const element = document.getElementById("div1");
-element.appendChild(para);
+let e = Event("click");
+alert(e.isTrusted);
+const container = document.querySelector("body");
+const newParag = document.createElement("p");
+newParag.textContent = outputMessage;
+newParag.style.color = "indigo";
+container.append(newParag);
